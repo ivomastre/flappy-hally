@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public Rigidbody2D playerRigidbody;
-    public float jumpForce = 15;
+    public float jumpForce = 7;
 
     // Start is called before the first frame update
     void Start()
@@ -15,24 +15,23 @@ public class Player : MonoBehaviour
 
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     void OnJump()
     {
         playerRigidbody.velocity = Vector2.up * jumpForce;
     }
 
+    void GameOver()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        SceneManager.LoadScene("Menu");
+        GameOver();
     }
 
     private void OnBecameInvisible()
     {
-        SceneManager.LoadScene("Menu");
+        GameOver();
     }
 }
