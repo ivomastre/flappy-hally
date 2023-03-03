@@ -8,13 +8,6 @@ public class Player : MonoBehaviour
 {
     public Rigidbody2D playerRigidbody;
     public float jumpForce = 7;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     void OnJump()
     {
         playerRigidbody.velocity = Vector2.up * jumpForce;

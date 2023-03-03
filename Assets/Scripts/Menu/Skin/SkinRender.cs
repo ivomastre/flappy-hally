@@ -7,11 +7,10 @@ public class SkinRender : MonoBehaviour
 {
     void OnSkinClick(GameObject skin)
     {
-        // Load player skin from PlayerSkin Prefab
-        GameObject playerSkin = Resources.Load("Prefabs/PlayerSkinPrefab") as GameObject;
+        string skinName = skin.name;
 
-        // Set player skin as player sprite
-        playerSkin.GetComponent<SpriteRenderer>().sprite = skin.GetComponent<SpriteRenderer>().sprite;
+        // Save the skin name to PlayerPrefs
+        PlayerPrefs.SetString("PlayerSkin", skinName);
     }
 
     void Start()

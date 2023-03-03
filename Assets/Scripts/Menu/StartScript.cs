@@ -9,5 +9,11 @@ public class StartScript : MonoBehaviour
     {
         Debug.Log("Start Game");
         SceneManager.LoadScene("GameScene"); // Game Scene
+
+        // Check if player skin is set, if not, set it to default
+        if (PlayerPrefs.GetString("PlayerSkin") == "")
+        {
+            PlayerPrefs.SetString("PlayerSkin", "Default");
+        }
     }
 }
